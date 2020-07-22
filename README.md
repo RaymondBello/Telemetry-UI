@@ -1,7 +1,7 @@
 # Ground station Telemetry UI
 Code for an ground station where different sensor data are displayed in real time.
 
-![imagen](https://i.imgur.com/zDY3DnY.gif)
+![imagen](https://i.imgur.com/RbEPwcC.jpg)
 
 ## Table of contents
 * [Support](#support)
