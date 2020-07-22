@@ -158,130 +158,128 @@ def update_acc(value):
 
 
 # GraphicUI
-# del gyro
-GrafEuler = l12.addPlot(title="Gyroscope")
-GrafEuler.hideAxis('bottom')
-# añadiendo leyenda
-GrafEuler.addLegend()
-curvaPitch = GrafEuler.plot(pen=(102, 252, 241), name="Pitch")
-curvaRoll = GrafEuler.plot(pen=(29, 185, 84), name="Roll")
-curvaYaw = GrafEuler.plot(pen=(203, 45, 111), name="Yaw")
 
-DatosPitch = np.linspace(0, 0)
-DatosRoll = np.linspace(0, 0)
-DatosYaw = np.linspace(0, 0)
+EulerGraph = l12.addPlot(title="Gyroscope")
+EulerGraph.hideAxis('bottom')
+# add legend
+EulerGraph.addLegend()
+curvePitch = EulerGraph.plot(pen=(102, 252, 241), name="Pitch")
+curveRoll = EulerGraph.plot(pen=(29, 185, 84), name="Roll")
+curveYaw = EulerGraph.plot(pen=(203, 45, 111), name="Yaw")
+
+DataPitch = np.linspace(0, 0)
+DataRoll = np.linspace(0, 0)
+DataYaw = np.linspace(0, 0)
 ptr3 = 0
 
 
 def update_gyro(value):
-    global curvaPitch, curvaRoll, curvaYaw, DatosPitch, DatosRoll, DatosYaw, ptr3
-    DatosPitch[:-1] = DatosPitch[1:]
-    DatosRoll[:-1] = DatosRoll[1:]
-    DatosYaw[:-1] = DatosYaw[1:]
+    global curvePitch, curveRoll, curveYaw, DataPitch, DataRoll, DataYaw, ptr3
+    DataPitch[:-1] = DataPitch[1:]
+    DataRoll[:-1] = DataRoll[1:]
+    DataYaw[:-1] = DataYaw[1:]
 
-    DatosPitch[-1] = float(value[5])
-    DatosRoll[-1] = float(value[6])
-    DatosYaw[-1] = float(value[7])
+    DataPitch[-1] = float(value[5])
+    DataRoll[-1] = float(value[6])
+    DataYaw[-1] = float(value[7])
 
     ptr3 += 1
 
-    curvaPitch.setData(DatosPitch)
-    curvaRoll.setData(DatosRoll)
-    curvaYaw.setData(DatosYaw)
+    curvePitch.setData(DataPitch)
+    curveRoll.setData(DataRoll)
+    curveYaw.setData(DataYaw)
 
-    curvaPitch.setPos(ptr3, 0)
-    curvaRoll.setPos(ptr3, 0)
-    curvaYaw.setPos(ptr3, 0)
+    curvePitch.setPos(ptr3, 0)
+    curveRoll.setPos(ptr3, 0)
+    curveYaw.setPos(ptr3, 0)
 
 
 # GraphicUI
-# Presion
+
 graf_presion = l12.addPlot(title="Magnetometer")
-curva_presion = graf_presion.plot(pen=(102, 252, 241))
-datos_presion = np.linspace(0, 0, 30)
+curve_precision = graf_presion.plot(pen=(102, 252, 241))
+data_precision = np.linspace(0, 0, 30)
 ptr4 = 0
 
 
-def update_presion(value):
-    global curva_presion, datos_presion,  ptr4
-    datos_presion[:-1] = datos_presion[1:]
-    datos_presion[-1] = float(value[4])
+def update_precision(value):
+    global curve_precision, data_precision,  ptr4
+    data_precision[:-1] = data_precision[1:]
+    data_precision[-1] = float(value[4])
     ptr4 += 1
-    curva_presion.setData(datos_presion)
-    curva_presion.setPos(ptr4, 0)
+    curve_precision.setData(data_precision)
+    curve_precision.setPos(ptr4, 0)
 
 
 # GraphicUI
-# temperatura
-graf_temp = l12.addPlot(title="Control Data")
-curva_temp = graf_temp.plot(pen=(29, 185, 84))
-datos_temp = np.linspace(0, 0, 30)
+
+graph_control = l12.addPlot(title="Control Data")
+curve_control = graph_control.plot(pen=(29, 185, 84))
+data_control = np.linspace(0, 0, 30)
 ptr5 = 0
 
 
 def update_temp(value):
-    global curva_temp, datos_temp,  ptr5
-    datos_temp[:-1] = datos_temp[1:]
-    datos_temp[-1] = float(value[3])
+    global curve_control, data_control,  ptr5
+    data_control[:-1] = data_control[1:]
+    data_control[-1] = float(value[3])
     ptr5 += 1
-    curva_temp.setData(datos_temp)
-    curva_temp.setPos(ptr5, 0)
+    curve_control.setData(data_control)
+    curve_control.setPos(ptr5, 0)
 
 
-# Graficos de tiempo, bateria y caida
+# Time Graphic
 l2 = GraphicUI.addLayout(border=(83, 83, 83))
 
 
-# GraphicUI
-# del tiempo
-GrafTiempo = l2.addPlot(title="Elapsed Time (H:M:S)")
-GrafTiempo.hideAxis('bottom')
-GrafTiempo.hideAxis('left')
-textoTiempo = pg.TextItem("0:00:00", anchor=(0.5, 0.5), color="w")
-textoTiempo.setFont(font)
-GrafTiempo.addItem(textoTiempo)
+# Time Graphic
+TimeGraphic = l2.addPlot(title="Elapsed Time (H:M:S)")
+TimeGraphic.hideAxis('bottom')
+TimeGraphic.hideAxis('left')
+texttoTime = pg.TextItem("0:00:00", anchor=(0.5, 0.5), color="w")
+texttoTime.setFont(font)
+TimeGraphic.addItem(texttoTime)
 
 
-def update_tiempo(value):
-    global textoTiempo
-    textoTiempo.setText('')
-    tiempo = round(int(value[0]) / 60000, 2)
-    textoTiempo.setText(str(tiempo))
+def update_time(value):
+    global texttoTime
+    texttoTime.setText('')
+    time_ = round(int(value[0]) / 60000, 2)
+    texttoTime.setText(str(time_))
 
 
 l2.nextRow()
 
-# GraphicUI
-# de la batería
-GrafBateria = l2.addPlot(title="Current System State")
-GrafBateria.hideAxis('bottom')
-GrafBateria.hideAxis('left')
-textoBateria = pg.TextItem("IDLE", anchor=(0.5, 0.5), color="w")
-textoBateria.setFont(font)
-GrafBateria.addItem(textoBateria)
+# Current State Graphic
+StateGraphic = l2.addPlot(title="Current System State")
+StateGraphic.hideAxis('bottom')
+StateGraphic.hideAxis('left')
+texttoState = pg.TextItem("IDLE", anchor=(0.5, 0.5), color="w")
+texttoState.setFont(font)
+StateGraphic.addItem(texttoState)
 
 
-def update_bateria(value):
+def update_state(value):
     pass
 
 
 l2.nextRow()
 
-graf_clibre = l2.addPlot(title="Heading (degrees)")
-graf_clibre.hideAxis('bottom')
-graf_clibre.hideAxis('left')
-text_clibre = pg.TextItem("0.00°", anchor=(0.5, 0.5), color="w")
-text_clibre.setFont(font)
-graf_clibre.addItem(text_clibre)
+compassGraphic = l2.addPlot(title="Heading (degrees)")
+compassGraphic.hideAxis('bottom')
+compassGraphic.hideAxis('left')
+textCompass = pg.TextItem("0.00°", anchor=(0.5, 0.5), color="w")
+textCompass.setFont(font)
+compassGraphic.addItem(textCompass)
 
 
-def update_clibre(value):
-    global text_clibre
-    text_clibre.setText('')
+def update_compass(value):
+    global textCompass
+    textCompass.setText('')
     if(value[2] == '0'):
-        text_clibre.setText('No')
+        textCompass.setText('No')
     else:
-        text_clibre.setText('Si')
+        textCompass.setText('Si')
 
 
 def update():
@@ -290,12 +288,12 @@ def update():
         value = ser.getData()
         updateheight(value)
         update_vel(value)
-        update_tiempo(value)
+        update_time(value)
         update_acc(value)
         update_gyro(value)
-        update_presion(value)
+        update_precision(value)
         update_temp(value)
-        update_clibre(value)
+        update_compass(value)
         db.save(value)
     except IndexError:
         print('iniciando')
