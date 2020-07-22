@@ -11,10 +11,6 @@ Code for an ground station where different sensor data are displayed in real tim
 * [How does it work?](#how-does-it-work)
 * [Sources](#sources)
 
-
-___
-## Support
-If you used this project or learned something please give this project a star to keep doing open source projects
 ___
 
 ## General info
@@ -38,7 +34,7 @@ $ pip3 install -r requirements.txt
 $ python3 interface.py
 ```
 if you don't have the electronics you can still use it! When the terminal asks you to write a serial port, write anything and it will work, obviously it won't trace any data.
-___
+
 ## How does it work?
 ### How does it sample?
 Every 500 ms takes a sample, this number comes from the data rate that the Arduino has. The loop is:
