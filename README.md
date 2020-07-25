@@ -1,16 +1,16 @@
 # Ground station Telemetry UI
-Code for an ground station where different sensor data are displayed in real time.
 
 ![Build Status](https://img.shields.io/github/last-commit/RaymondBello/Telemetry-UI) ![Build Status](https://img.shields.io/github/issues-raw/RaymondBello/Telemetry-UI) ![Build Status](https://img.shields.io/github/contributors/RaymondBello/Telemetry-UI?color) 
 ![Build Status](https://img.shields.io/github/languages/top/RaymondBello/Telemetry-UI) ![Build Status](https://img.shields.io/github/languages/count/RaymondBello/Telemetry-UI) 
 ![Build Status](https://img.shields.io/github/repo-size/RaymondBello/Telemetry-UI?color=red) 
 
+This program is designed to be a Ground Station Telemetry Dashboard UI where various sensor data components can be displayed in real time.
+
 ![imagen](https://i.imgur.com/RbEPwcC.jpg)
 
 ## Table of contents
-* [Support](#support)
-* [General info](#general-info)
-* [Technologies](#technologies)
+* [General Info](#general-info)
+* [Modules](#modules)
 * [Setup](#setup)
 * [How does it work?](#how-does-it-work)
 * [Sources](#sources)
@@ -19,13 +19,16 @@ Code for an ground station where different sensor data are displayed in real tim
 ## General info
 The purpose of this project is to make the data transmitted by an OBC (on board computer) or a CanSat understandable at first sight through a text string on a serial port.
 
-## Technologies
-Project is created with:
-* numpy==1.18.2
-* PyQt5==5.14.2
-* PyQt5-sip==12.7.2
-* pyqtgraph==0.10.0
-* pyserial==3.4
+## Modules
+Modules required for this project:
+
+```
+numpy == 1.18.2
+PyQt5 == 5.14.2
+PyQt5-sip == 12.7.2
+pyqtgraph == 0.10.0
+pyserial == 3.4
+```
 
 
 ## Setup
