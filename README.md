@@ -1,6 +1,10 @@
 # Ground station Telemetry UI
 Code for an ground station where different sensor data are displayed in real time.
 
+![Build Status](https://img.shields.io/github/last-commit/RaymondBello/Telemetry-UI) ![Build Status](https://img.shields.io/github/issues-raw/RaymondBello/Telemetry-UI) ![Build Status](https://img.shields.io/github/contributors/RaymondBello/Telemetry-UI?color) 
+![Build Status](https://img.shields.io/github/languages/top/RaymondBello/Telemetry-UI) ![Build Status](https://img.shields.io/github/languages/count/RaymondBello/Telemetry-UI) 
+![Build Status](https://img.shields.io/github/repo-size/RaymondBello/Telemetry-UI?color=red) 
+
 ![imagen](https://i.imgur.com/RbEPwcC.jpg)
 
 ## Table of contents
@@ -11,7 +15,6 @@ Code for an ground station where different sensor data are displayed in real tim
 * [How does it work?](#how-does-it-work)
 * [Sources](#sources)
 
-___
 
 ## General info
 The purpose of this project is to make the data transmitted by an OBC (on board computer) or a CanSat understandable at first sight through a text string on a serial port.
@@ -24,7 +27,7 @@ Project is created with:
 * pyqtgraph==0.10.0
 * pyserial==3.4
 
-___
+
 ## Setup
 To run it you have to open the terminal in the folder and type:
 ```
@@ -37,7 +40,8 @@ if you don't have the electronics you can still use it! When the terminal asks y
 
 ## How does it work?
 ### How does it sample?
-Every 500 ms takes a sample, this number comes from the data rate that the Arduino has. The loop is:
+Every 500 ms a sample is taken, this number comes from the Arduino data rate. 
+The loop is:
 ```
 timer = pg.QtCore.QTimer()
 timer.timeout.connect(update)
@@ -53,9 +57,8 @@ Clicking on the **Begin Data Logging** button calls a function of the **db** cla
 
 ## Sources
 
-"If I have seen further than others, it is by standing upon the shoulders of giants." - newton making fun of hooke's back.
+*"If I have seen further than others, it is by standing upon the shoulders of giants."*
 
-* Hrisko, J. (2018). [Python Datalogger - Using pySerial to Read Serial Data Output from Arduino.](https://bit.ly/2wQvByM)
 * Sepúlveda, S. Reyes, P. Weinstein, A. (2015). [Visualizing physiological signals in real-time](https://bit.ly/2XIRzyw). doi: 10.25080/Majora-7b98e3ed-01c
 * Golubev, P. (2018). [Run Real-time pyqtgraph in PlotWidget GUI.](https://bit.ly/2VeXSIv)
 * Pythonspot.(n.d). [PyQt5.](https://pythonspot.com/pyqt5/)
