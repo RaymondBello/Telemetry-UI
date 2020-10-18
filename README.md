@@ -1,10 +1,10 @@
-# Ground station Telemetry UI
+# Ground Station Telemetry GUI
 
 ![Build Status](https://img.shields.io/github/last-commit/RaymondBello/Telemetry-UI) ![Build Status](https://img.shields.io/github/issues-raw/RaymondBello/Telemetry-UI) ![Build Status](https://img.shields.io/github/contributors/RaymondBello/Telemetry-UI?color) 
 ![Build Status](https://img.shields.io/github/languages/top/RaymondBello/Telemetry-UI) ![Build Status](https://img.shields.io/github/languages/count/RaymondBello/Telemetry-UI) 
 ![Build Status](https://img.shields.io/github/repo-size/RaymondBello/Telemetry-UI?color=red) 
 
-This program is designed to be a Ground Station Telemetry Dashboard UI where various sensor data components can be displayed in real time.
+This GUI is designed to be a Ground Station Telemetry Dashboard UI where various sensor data components can be displayed in real time.
 
 ![Telemetry](./images/Telemetry_Demo.gif)
 
@@ -17,7 +17,7 @@ This program is designed to be a Ground Station Telemetry Dashboard UI where var
 
 
 ## General info
-The purpose of this project is to make the data transmitted by an OBC (on board computer) or a CanSat understandable at first sight through a text string on a serial port.
+The purpose of this GUI is to make the data transmitted by an OBC (on board computer) or a TCP connection understandable at first sight.
 
 ## Modules
 Modules required for this project:
@@ -27,7 +27,6 @@ numpy == 1.18.2
 PyQt5 == 5.14.2
 PyQt5-sip == 12.7.2
 pyqtgraph == 0.10.0
-pyserial == 3.4
 ```
 
 
@@ -39,11 +38,11 @@ $ source env/bin/activate
 $ pip3 install -r requirements.txt
 $ python3 interface.py
 ```
-if you don't have the electronics you can still use it! When the terminal asks you to write a serial port, write anything and it will work, obviously it won't trace any data.
+if you don't have the electronics you can still use it! It will plot random data for a specified time step `RANDOM_PLOT_STEP=1000` by default. 
 
 ## How does it work?
 ### How does it sample?
-Every 500 ms a sample is taken, this number comes from the Arduino data rate. 
+Every 10 ms a sample is taken.
 The loop is:
 ```
 timer = pg.QtCore.QTimer()
@@ -56,7 +55,7 @@ The `update()` function updates the graphics and text of the interface. The firs
 
 
 ### How does it store the information?
-Clicking on the **Begin Data Logging** button calls a function of the **db** class that changes a state that determines whether the `save` method writes the information in the list. 
+Clicking on the buttons **ABORT**, **START**, **RETURN**, **LOG TOGGLE** and **SET ORIGIN** calls a function that changes the global state variable `CURRENT_STATE`. 
 
 ## Sources
 
