@@ -6,7 +6,7 @@
 
 This program is designed to be a Ground Station Telemetry Dashboard UI where various sensor data components can be displayed in real time.
 
-![imagen](https://i.imgur.com/RbEPwcC.jpg)
+![Telemetry](./images/Telemetry_Demo.gif)
 
 ## Table of contents
 * [General Info](#general-info)
