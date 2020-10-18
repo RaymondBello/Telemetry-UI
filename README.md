@@ -35,8 +35,8 @@ To run it you have to open the terminal in the folder and type:
 ```
 $ virtualenv env
 $ source env/bin/activate
-$ pip3 install -r requirements.txt
-$ python3 interface.py
+$ pip install -r requirements.txt
+$ python Telemetry_GUI.py
 ```
 if you don't have the electronics you can still use it! It will plot random data for a specified time step `RANDOM_PLOT_STEP=1000` by default. 
 
