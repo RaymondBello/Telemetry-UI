@@ -54,7 +54,7 @@ timer.start(500)
 The `update()` function updates the graphics and text of the interface. The first thing it does is get a list of the information to be updated.
 
 
-### How does it store the information?
+### How is the vehicle state changed?
 Clicking on the buttons **ABORT**, **START**, **RETURN**, **LOG TOGGLE** and **SET ORIGIN** calls a function that changes the global state variable `CURRENT_STATE`. 
 
 ## Sources
