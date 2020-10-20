@@ -6,7 +6,7 @@
 
 This GUI is designed to be a Ground Station Telemetry Dashboard UI where various sensor data components can be displayed in real time.
 
-![Telemetry](./images/Telemetry_Demo.gif)
+![Telemetry](./images/Telemetry_Demo1.gif)
 
 ## Table of contents
 * [General Info](#general-info)
